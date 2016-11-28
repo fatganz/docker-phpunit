@@ -12,4 +12,4 @@ RUN pecl install redis-2.2.8 xdebug && \
 # used instead.
 RUN composer global require phpunit/phpunit:*
 
-CMD ["phpunit"]
+ENTRYPOINT ["phpunit"]
