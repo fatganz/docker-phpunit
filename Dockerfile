@@ -2,7 +2,7 @@ FROM composer/composer:1-php5
 
 # Setup phpunit dependencies (including optional)
 RUN docker-php-ext-install bcmath
-RUN pecl install redis xdebug && \
+RUN pecl install redis-2.2.8 xdebug && \
     docker-php-ext-enable redis && \
     docker-php-ext-enable xdebug
 
