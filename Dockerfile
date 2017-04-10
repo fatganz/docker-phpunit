@@ -1,4 +1,4 @@
-FROM composer/composer:1-php5
+FROM composer:1
 
 # Setup phpunit dependencies (including optional)
 RUN docker-php-ext-install bcmath
