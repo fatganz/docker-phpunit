@@ -1,14 +1,12 @@
-FROM composer:1
-
-# Setup phpunit dependencies (including optional)
-RUN docker-php-ext-install bcmath
+FROM composer:1.4
 
 RUN set -xe \
 	&& apk update \
   && apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
+  && docker-php-ext-install bcmath \
   && pecl install redis-3.1.2 xdebug && \
-    docker-php-ext-enable redis xdebug \
+    docker-php-ext-enable redis xdebug bcmath \
   && apk del .build-deps
 
 # Install the most recent stable phpunit.  This is more or less a fallback for
