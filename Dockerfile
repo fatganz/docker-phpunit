@@ -4,7 +4,7 @@ RUN set -xe \
 	&& apk update \
   && apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
-  && docker-php-ext-install bcmath \
+  && docker-php-ext-install bcmath intl \
   && pecl install redis-3.1.2 xdebug && \
     docker-php-ext-enable redis xdebug bcmath \
   && apk del .build-deps
